@@ -1,0 +1,8 @@
+[package]
+name = "rrt"
+version = "0.1.0"
+authors = ["Michael Maclean <michael@no-surprises.co.uk>"]
+
+[dependencies]
+docopt = "0.6.86"
+rustc-serialize = "0.3.22"
