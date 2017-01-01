@@ -5,4 +5,3 @@ pub struct Ray {
     pub origin: Point,
     pub direction: Point
 }
-

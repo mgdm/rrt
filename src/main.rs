@@ -37,7 +37,7 @@ struct Args {
     flag_debug: bool
 }
 
-fn load_scene(filename: &String) {
+fn load_scene(filename: &String) -> Scene {
     let path = Path::new(filename);
 
     let file = match File::open(&path) {
@@ -51,13 +51,6 @@ fn load_scene(filename: &String) {
     }
 }
 
-fn serialize_scene() {
-    let sphere = Sphere { origin: Point { x: 1.0, y: 1.0, z: 1.0 }, radius: 1.0 };
-    let objects = vec![sphere];
-    let scene: Scene = Scene { objects: objects };
-    println!("{}", serde_json::to_string(&scene).unwrap());
-}
-
 fn main() {
     let args: Args = Docopt::new(USAGE)
         .and_then(|d| d.decode())
@@ -69,5 +62,4 @@ fn main() {
 
     let scene = load_scene(&args.arg_SCENE);
     println!("{:?}", scene);
-//    serialize_scene();
 }
